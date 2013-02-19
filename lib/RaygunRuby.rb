@@ -16,7 +16,8 @@ module RaygunRuby
   end
   class Config
     def self.read
-      my_env = RAILS_ENV || RACK_ENV || "development"
+      my_env = ENV['RAILS_ENV'] || ENV['RACK_ENV'] || "development"
+      puts "YOLO::::" + my_env
       YAML.load_file("#{Rails.root}/config/raygun.yml")["#{my_env}"]
     end
   end
