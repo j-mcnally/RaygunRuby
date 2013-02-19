@@ -3,14 +3,14 @@ module RaygunRuby
     attr_accessor :message, :classname, :stacktrace, :filename, :data
     def initialize(exception)
       exceptionClass = exception.class.name
-      self.classname = exceptionClass
       self.message = "#{exceptionClass}: #{exception.message}"
       begin
         backTraceLine = exception.backtrace.first
         self.filename = File::basename(backTraceLine.split(":").first)
-
+        self.classname = File.basename(self.filename, ".rb").camelize
       rescue
         self.filename = "Unknown"
+        self.classname = "Unknown"
       end
       self.stacktrace = exception.backtrace.collect{|bt| RaygunExceptionTraceLineMessage.new(bt) }
       self.data = nil
