@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["justin@kohactive.com"]
   gem.description   = "Raygun api implementation for rails"
   gem.summary       = "Allows usage of raygun and rails"
-  gem.homepage      = ["http://www.kohactive.com"]
+  gem.homepage      = "http://www.kohactive.com"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
