@@ -1,0 +1,8 @@
+development:
+  apiKey: <%=@apiKey%>
+
+test:
+  apiKey: <%=@apiKey%>
+
+production:
+  apiKey: <%=@apiKey%>
