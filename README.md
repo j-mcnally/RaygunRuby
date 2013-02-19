@@ -4,6 +4,11 @@ Integrate rails with the Raygun.io service.
 
 I, nor kohactive are in anyway associated with the offical raygun.io, we just couldn't wait for them to develop a rails solution so we rolled our own.
 
+Throwing exceptions has never been so much fun.
+
+
+
+
 
 ## Installation
 
