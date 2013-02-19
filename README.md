@@ -25,6 +25,7 @@ Or install it yourself as:
     $ gem install RaygunRuby
 
 Also generate a raygun.yml with
+    
     $ rake raygun:install
 
 ## Usage
