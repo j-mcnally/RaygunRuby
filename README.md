@@ -1,6 +1,9 @@
 # RaygunRuby
 
-TODO: Write a gem description
+Integrate rails with the Raygun.io service.
+
+I, nor kohactive are in anyway associated with the offical raygun.io, we just couldn't wait for them to develop a rails solution so we rolled our own.
+
 
 ## Installation
 
@@ -16,9 +19,14 @@ Or install it yourself as:
 
     $ gem install RaygunRuby
 
+Also generate a raygun.yml with
+    $ rake raygun:install
+
 ## Usage
 
-TODO: Write usage instructions here
+Add the following to which ever config/environment files you want to use with raygun
+    
+    config.middleware.use RaygunRuby::Middleware
 
 ## Contributing
 
