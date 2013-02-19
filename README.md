@@ -14,7 +14,7 @@ Throwing exceptions has never been so much fun.
 
 Add this line to your application's Gemfile:
 
-    gem 'RaygunRuby'
+    gem 'RaygunRuby', '0.9.3'
 
 And then execute:
 
