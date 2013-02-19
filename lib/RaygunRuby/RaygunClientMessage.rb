@@ -9,7 +9,7 @@ module RaygunRuby
       self
     end
 
-    def to_json
+    def api_attributes
       {
         name: self.name,
         version: self.version,

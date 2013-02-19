@@ -10,7 +10,7 @@ module RaygunRuby
       self.className = File.basename(self.fileName, ".rb")
     end
 
-    def to_json
+    def api_attributes
       {
         "LineNumber" => self.lineNumber.to_i,
         "ClassName" => self.className,

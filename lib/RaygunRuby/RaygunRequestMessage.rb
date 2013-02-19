@@ -10,7 +10,7 @@ module RaygunRuby
       self.httpMethod = env["REQUEST_METHOD"]
       self.ipAddress = env["REMOTE_ADDR"]
       self.queryString = env["QUERY_STRING"].present? ? env["QUERY_STRING"] : nil
-      header_hash = env.keys.reject{|x| x.include?(".")}.map{|k| {"#{k}" => env[k]} }.map(&:to_a).flatten(1).reduce({}) {|h,(k,v)| h[k] = v; h}
+      header_hash = env.keys.reject{|x| !x.include?("HTTP")}.map{|k| {"#{k}" => env[k]} }.map(&:to_a).flatten(1).reduce({}) {|h,(k,v)| h[k] = v; h}
       hash_out = header_hash.dup
       header_hash.each { |k, v| hash_out[k.to_s.sub("HTTP_", "").sub("_", " ").titleize.sub(" ", "-")] = v; hash_out.delete(k) }
       header_hash = hash_out
@@ -20,7 +20,7 @@ module RaygunRuby
       self.rawData = nil
     end
 
-    def to_json
+    def api_attributes
       {
         hostName: self.hostName,
         url: self.url,

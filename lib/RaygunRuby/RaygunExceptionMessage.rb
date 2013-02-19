@@ -16,11 +16,11 @@ module RaygunRuby
       self.data = nil
       self
     end
-    def to_json
+    def api_attributes
       {
         "Message" => self.message,
         "ClassName" => self.classname,
-        "StackTrace" => self.stacktrace.collect{|s| s.to_json},
+        "StackTrace" => self.stacktrace.collect{|s| s.api_attributes},
         "FileName" => self.filename,
         "Data" => self.data
       }

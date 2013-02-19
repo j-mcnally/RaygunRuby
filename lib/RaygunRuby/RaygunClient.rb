@@ -23,7 +23,7 @@ module RaygunRuby
       rescue 
         raise "API_KEY not valid, cannot send message to Raygun"
       end
-      bdy = message.to_json
+      bdy = message.api_attributes.to_json
 
         connection = Faraday.new 'https://api.raygun.io', :ssl => {:ca_file => "../../vendor/cacert.crt"} do |faraday|
             faraday.response :logger                  # log requests to STDOUT

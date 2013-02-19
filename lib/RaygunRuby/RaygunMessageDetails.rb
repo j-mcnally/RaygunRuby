@@ -5,12 +5,12 @@ module RaygunRuby
       self.tags=[]
       self
     end
-    def to_json
+    def api_attributes
       {
-        "Error" => self.error.to_json,
+        "Error" => self.error.api_attributes,
         "MachineName" => self.machineName,
-        "Request" => self.request.to_json,
-        "Client" => self.client.to_json,
+        "Request" => self.request.api_attributes,
+        "Client" => self.client.api_attributes,
         "Version" => self.version,
         "Tags" => self.tags.to_json,
         "UserCustomData" => self.userCustomData

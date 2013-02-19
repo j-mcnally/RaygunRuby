@@ -15,11 +15,11 @@ module RaygunRuby
       self.details.client = RaygunClientMessage.new
       self
     end
-    def to_json
+    def api_attributes
       {
-        "Details" => self.details.to_json,
+        "Details" => self.details.api_attributes,
         "OccurredOn" => self.occurredOn
-      }.to_json
+      }
     end
   end
 end
