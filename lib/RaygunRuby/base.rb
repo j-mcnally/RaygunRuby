@@ -12,13 +12,13 @@ module RaygunRuby
 
     def initialize(app)
       @ready = false
-     # begin
+      begin
         key = RaygunRuby::Config::read["apiKey"]
         puts "RayGun is charged"
         @ready = true
-      #rescue
+      rescue
         puts "RayGun API Key is not configured::: run 'rake raygun:install'"
-      #end
+      end
 
 
 
