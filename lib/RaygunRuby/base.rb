@@ -31,19 +31,18 @@ module RaygunRuby
     end
     
     def _call(env)
-      _env = env.dup
       begin
-        @app.call(_env)
+        @app.call(env)
       rescue Exception => exception
-        raygun_handle_and_rethrow(exception,_env)
+        raygun_handle_and_rethrow(exception,env)
       end
     end
-    def raygun_handle_and_rethrow(exception, _env)
+    def raygun_handle_and_rethrow(exception, env)
       backtrace = exception.backtrace.join("\n")
       message = exception.message
       #ap env
 
-      RaygunRuby::RaygunClient::send_exception(exception, nil, nil, _env)
+      RaygunRuby::RaygunClient::send_exception(exception, nil, nil, env)
 
       raise exception
     end
