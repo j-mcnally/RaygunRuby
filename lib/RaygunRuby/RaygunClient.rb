@@ -24,8 +24,9 @@ module RaygunRuby
         raise "API_KEY not valid, cannot send message to Raygun"
       end
       bdy = message.api_attributes.to_json
-
-        connection = Faraday.new 'https://api.raygun.io', :ssl => {:ca_file => "../../vendor/cacert.crt"} do |faraday|
+	    spec = Gem::Specification.find_by_name("RaygunRuby")
+        path = spec.gem_dir + "/vendor/cacert.crt"
+        connection = Faraday.new 'https://api.raygun.io', :ssl => {:ca_file => path} do |faraday|
             faraday.response :logger                  # log requests to STDOUT
             faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
         end
